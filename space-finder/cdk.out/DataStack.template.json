@@ -1,9 +1,66 @@
 {
  "Resources": {
+  "SpacesAE8EB89E": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "id",
+      "AttributeType": "S"
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+     }
+    ],
+    "ProvisionedThroughput": {
+     "ReadCapacityUnits": 5,
+     "WriteCapacityUnits": 5
+    },
+    "TableName": {
+     "Fn::Join": [
+      "",
+      [
+       "SpaceDynamoTable-",
+       {
+        "Fn::Select": [
+         4,
+         {
+          "Fn::Split": [
+           "-",
+           {
+            "Fn::Select": [
+             2,
+             {
+              "Fn::Split": [
+               "/",
+               {
+                "Ref": "AWS::StackId"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "DataStack/Spaces/Resource"
+   }
+  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/yXGyQ2AIBAAwFr4wwrEDugAK0DAZEGXhEMfxt6N8TWjQc0aFHNXEz5kseMK99Kdz9xsZGMro/r43RQK2LHQw6mECKlNp9YgQbLUEEUd1PGIYH9f8M+HJFkAAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/03ITQqDQAxA4bO4n0l18AbewHZfMpMpxJ8EzKgU8e4F3XT1Pl6Apg3QVLibTzT6iSMcz4JpdLjbm76Cs1KE44Vxyq77yIXT9dl0XdK1/t2pEBdWOZ0oZRjssYUANdTVYMx+WaXwnKG/+wMGWY77gAAAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "DataStack/CDKMetadata/Default"
@@ -219,6 +276,16 @@
      ]
     }
    ]
+  }
+ },
+ "Outputs": {
+  "ExportsOutputRefSpacesAE8EB89E603AF1DB": {
+   "Value": {
+    "Ref": "SpacesAE8EB89E"
+   },
+   "Export": {
+    "Name": "DataStack:ExportsOutputRefSpacesAE8EB89E603AF1DB"
+   }
   }
  },
  "Parameters": {

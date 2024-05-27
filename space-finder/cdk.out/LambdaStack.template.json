@@ -34,6 +34,36 @@
     "aws:cdk:path": "LambdaStack/SpacesLambda/ServiceRole/Resource"
    }
   },
+  "SpacesLambdaServiceRoleDefaultPolicyC1DF8F65": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:PutItem",
+        "dynamodb:Scan",
+        "dynamodb:GetItem"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::ImportValue": "DataStack:ExportsOutputFnGetAttSpacesAE8EB89EArnF238E2DD"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "SpacesLambdaServiceRoleDefaultPolicyC1DF8F65",
+    "Roles": [
+     {
+      "Ref": "SpacesLambdaServiceRole3689E892"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "LambdaStack/SpacesLambda/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
   "SpacesLambdaA5F923A4": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
@@ -41,7 +71,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "5a82fd3190721a0866ec584dfae2aac9c8a376f15191b55b319277b1e52a973b.zip"
+     "S3Key": "31d6f869a8133be127f1864bec149d1ad3bbc57f3dc453f087cf45226f53ee4c.zip"
     },
     "Environment": {
      "Variables": {
@@ -61,11 +91,12 @@
     "Runtime": "nodejs18.x"
    },
    "DependsOn": [
+    "SpacesLambdaServiceRoleDefaultPolicyC1DF8F65",
     "SpacesLambdaServiceRole3689E892"
    ],
    "Metadata": {
     "aws:cdk:path": "LambdaStack/SpacesLambda/Resource",
-    "aws:asset:path": "asset.5a82fd3190721a0866ec584dfae2aac9c8a376f15191b55b319277b1e52a973b",
+    "aws:asset:path": "asset.31d6f869a8133be127f1864bec149d1ad3bbc57f3dc453f087cf45226f53ee4c",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
@@ -73,7 +104,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWOOw6DMBBEz5J+2YDJBYKllCngAGgxBpnPWmLtUCDuHgGiesXMPI3C7KUwe9AqiWnHZHINblUgMwKtUm8TzU1LNfvWDoLfE5/IJjjP4GjGrfSTBd3xwR0kr0nEBsH3AZAci2hGGwoSC5cNdce3Y4fSio+LsXAOqkC94/4U3oHuWHtu3dU/ruAgz59SmGL6GMS5ZIkc3GyxvPgHlX7jxdYAAAA="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWOXQqDQAyEz9L3NfWnF6hCH0vRA0jcXSX+ZMGslSLevbji05dhksmkkDxSSG64SqTNEI3UwFZ51IPCVeptxKkxWLMzthd4B7wW1p4cK8IJttKNVhUtB37cSPp3yHPalWQ1ilgv8DygJIN80YP1OYpVZzwULV+huyqtuGXWVoWDymNH3IUPl1G0XDg2dO4f3aCX+zdNIYb41gtRNC/sabJQnvwD3iDL6ucAAAA="
    },
    "Metadata": {
     "aws:cdk:path": "LambdaStack/CDKMetadata/Default"

@@ -116,6 +116,14 @@
             "id": "Exports",
             "path": "DataStack/Exports",
             "children": {
+              "Output{\"Fn::GetAtt\":[\"SpacesAE8EB89E\",\"Arn\"]}": {
+                "id": "Output{\"Fn::GetAtt\":[\"SpacesAE8EB89E\",\"Arn\"]}",
+                "path": "DataStack/Exports/Output{\"Fn::GetAtt\":[\"SpacesAE8EB89E\",\"Arn\"]}",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.142.1"
+                }
+              },
               "Output{\"Ref\":\"SpacesAE8EB89E\"}": {
                 "id": "Output{\"Ref\":\"SpacesAE8EB89E\"}",
                 "path": "DataStack/Exports/Output{\"Ref\":\"SpacesAE8EB89E\"}",
@@ -210,6 +218,51 @@
                       "fqn": "aws-cdk-lib.aws_iam.CfnRole",
                       "version": "2.142.1"
                     }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "LambdaStack/SpacesLambda/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "LambdaStack/SpacesLambda/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "dynamodb:PutItem",
+                                    "dynamodb:Scan",
+                                    "dynamodb:GetItem"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::ImportValue": "DataStack:ExportsOutputFnGetAttSpacesAE8EB89EArnF238E2DD"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "SpacesLambdaServiceRoleDefaultPolicyC1DF8F65",
+                            "roles": [
+                              {
+                                "Ref": "SpacesLambdaServiceRole3689E892"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.142.1"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.142.1"
+                    }
                   }
                 },
                 "constructInfo": {
@@ -253,7 +306,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "5a82fd3190721a0866ec584dfae2aac9c8a376f15191b55b319277b1e52a973b.zip"
+                      "s3Key": "31d6f869a8133be127f1864bec149d1ad3bbc57f3dc453f087cf45226f53ee4c.zip"
                     },
                     "environment": {
                       "variables": {

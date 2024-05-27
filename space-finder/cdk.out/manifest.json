@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/80a66a77c043ef200b6e94fae3851027c52ae1503d8907943c94c671a98e564a.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3c1f2dfdaf601a8d25731d9d0171f9fab23482aa22233002b19a037e09068725.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -60,6 +60,12 @@
             "data": "CDKMetadataAvailable"
           }
         ],
+        "/DataStack/Exports/Output{\"Fn::GetAtt\":[\"SpacesAE8EB89E\",\"Arn\"]}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ExportsOutputFnGetAttSpacesAE8EB89EArnF238E2DD"
+          }
+        ],
         "/DataStack/Exports/Output{\"Ref\":\"SpacesAE8EB89E\"}": [
           {
             "type": "aws:cdk:logicalId",
@@ -98,7 +104,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e8b7e228c844876091c9ff93a0febc5999eb3b843a2ade39e49caa164aae3b02.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/db3d81434618439be9c6cbc13431b6d88e1dd5f5b41bfb2da5c6ed19f81adf4a.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -119,6 +125,12 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "SpacesLambdaServiceRole3689E892"
+          }
+        ],
+        "/LambdaStack/SpacesLambda/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SpacesLambdaServiceRoleDefaultPolicyC1DF8F65"
           }
         ],
         "/LambdaStack/SpacesLambda/Resource": [

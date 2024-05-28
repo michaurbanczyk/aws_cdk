@@ -3,6 +3,8 @@ import {Context} from "vm";
 import {DynamoDBClient} from "@aws-sdk/client-dynamodb";
 import {postSpaces} from "./PostSpaces";
 import {getSpaces} from "./GetSpaces";
+import {updateSpaces} from "./UpdateSpaces";
+import {deleteSpaces} from "./DeleteSpace";
 
 
 const ddbClient = new DynamoDBClient({})
@@ -17,6 +19,10 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
                 return await getSpaces(event, ddbClient);
             case 'POST':
                 return await postSpaces(event, ddbClient);
+            case 'PUT':
+                return await updateSpaces(event, ddbClient)
+            case 'DELETE':
+                return await deleteSpaces(event, ddbClient)
             default:
                 break;
         }

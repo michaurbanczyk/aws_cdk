@@ -43,7 +43,9 @@
        "Action": [
         "dynamodb:PutItem",
         "dynamodb:Scan",
-        "dynamodb:GetItem"
+        "dynamodb:GetItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem"
        ],
        "Effect": "Allow",
        "Resource": {
@@ -71,7 +73,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "31d6f869a8133be127f1864bec149d1ad3bbc57f3dc453f087cf45226f53ee4c.zip"
+     "S3Key": "c81c8cde07b997dd39bcb9a98029b3f1e51289bc4b34de363e3b8bbe5a5d929e.zip"
     },
     "Environment": {
      "Variables": {
@@ -96,7 +98,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "LambdaStack/SpacesLambda/Resource",
-    "aws:asset:path": "asset.31d6f869a8133be127f1864bec149d1ad3bbc57f3dc453f087cf45226f53ee4c",
+    "aws:asset:path": "asset.c81c8cde07b997dd39bcb9a98029b3f1e51289bc4b34de363e3b8bbe5a5d929e",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
